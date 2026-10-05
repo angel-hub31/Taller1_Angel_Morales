@@ -8,7 +8,6 @@ public class PlayerController : MonoBehaviour  // aqui se hereda de la clase Mon
     public float jumpForce= 7f;//variable fuerza de salto
     private bool isGrounded; //variable booleana para verificar si esta en el suelo (isGrounded)
 
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()// se ejecuta esta funcion la primera vez que lanza el videojuego y se ejecuta este metodo
     {            // se inicializa una sola vez en el juego
@@ -28,15 +27,12 @@ public class PlayerController : MonoBehaviour  // aqui se hereda de la clase Mon
             rd.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             isGrounded= false;
         }
-        
     }
-
     void OnCollisionEnter2D(Collision2D collision){
         if(collision.gameObject.CompareTag("Ground")){
             isGrounded= true;
         }
     }
-
     void OnCollisionExit2D(Collision2D colision)
     {
         if (colision.gameObject.CompareTag("Ground"))
