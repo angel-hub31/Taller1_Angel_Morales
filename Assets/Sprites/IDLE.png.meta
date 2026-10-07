@@ -20,6 +20,9 @@ TextureImporter:
   - first:
       213: -7154528564402915179
     second: IDLE_5
+  - first:
+      213: -8112586356116296526
+    second: IDLE_6
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -120,10 +123,10 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 148
-        height: 96
+        width: 96
+        height: 84
       alignment: 9
-      pivot: {x: 0.42407805, y: 0.3773801}
+      pivot: {x: 0.5044649, y: 0.4693837}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -140,12 +143,12 @@ TextureImporter:
       name: IDLE_1
       rect:
         serializedVersion: 2
-        x: 148
+        x: 96
         y: 0
-        width: 148
-        height: 96
+        width: 96
+        height: 84
       alignment: 9
-      pivot: {x: 0.42046273, y: 0.36623275}
+      pivot: {x: 0.5044649, y: 0.4540758}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -162,12 +165,12 @@ TextureImporter:
       name: IDLE_2
       rect:
         serializedVersion: 2
-        x: 296
+        x: 192
         y: 0
-        width: 148
-        height: 96
+        width: 96
+        height: 84
       alignment: 9
-      pivot: {x: 0.42046252, y: 0.35508546}
+      pivot: {x: 0.51785916, y: 0.4387676}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -184,12 +187,12 @@ TextureImporter:
       name: IDLE_3
       rect:
         serializedVersion: 2
-        x: 444
+        x: 288
         y: 0
-        width: 148
-        height: 96
+        width: 96
+        height: 84
       alignment: 9
-      pivot: {x: 0.42407826, y: 0.3383646}
+      pivot: {x: 0.5044648, y: 0.433665}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -206,12 +209,12 @@ TextureImporter:
       name: IDLE_4
       rect:
         serializedVersion: 2
-        x: 592
+        x: 384
         y: 0
-        width: 148
-        height: 96
+        width: 96
+        height: 84
       alignment: 9
-      pivot: {x: 0.42407763, y: 0.36065924}
+      pivot: {x: 0.5044648, y: 0.44897303}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -228,12 +231,12 @@ TextureImporter:
       name: IDLE_5
       rect:
         serializedVersion: 2
-        x: 740
+        x: 480
         y: 0
-        width: 148
-        height: 96
+        width: 96
+        height: 84
       alignment: 9
-      pivot: {x: 0.43853924, y: 0.36065924}
+      pivot: {x: 0.49553618, y: 0.433665}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -246,11 +249,33 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: IDLE_6
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 0
+        width: 96
+        height: 84
+      alignment: 9
+      pivot: {x: 0.50892955, y: 0.45407563}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2bce10201bd4a6f80800000000000000
+      internalID: -8112586356116296526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: a6cd9643ada46bb488dd8ef97d0cdcda
+    spriteID: d45e1d91dd2b2394e93872ece0d839d2
     internalID: 0
     vertices: []
     indices: 
@@ -260,7 +285,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":6.0,"y":1.0},"gridSpriteSize":{"x":148.0,"y":96.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":9,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":7.0,"y":1.0},"gridSpriteSize":{"x":96.0,"y":84.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":9,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       IDLE_0: 815424164945274260
       IDLE_1: -270785710348516584
@@ -268,6 +293,7 @@ TextureImporter:
       IDLE_3: 1777182293076053196
       IDLE_4: 6114163804962241700
       IDLE_5: -7154528564402915179
+      IDLE_6: -8112586356116296526
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
