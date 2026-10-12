@@ -1,5 +1,6 @@
 
-using UnityEngine;
+
+using UnityEngine; //libreria de base unity
 
 public class PlayerController : MonoBehaviour  // aqui se hereda de la clase MonoBehaviur
 {                                              // los 2 puntos  ":" significa heredar
@@ -12,10 +13,15 @@ public class PlayerController : MonoBehaviour  // aqui se hereda de la clase Mon
 
     private bool facinRight= true;
 
+    private bool isAttacking= false;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()// se ejecuta esta funcion la primera vez que lanza el videojuego y se ejecuta este metodo
     {            // se inicializa una sola vez en el juego
+
+    //busca y asigna automaticamente el componente fisico rigidbidy2D
         rd = GetComponent <Rigidbody2D>();
+        //busca y asigna para enviar parametros de animacion mas adelante
         animator=GetComponent<Animator>();
         
     }
@@ -23,7 +29,18 @@ public class PlayerController : MonoBehaviour  // aqui se hereda de la clase Mon
     void Update()// ejecuta a nivel de frames; se ejecuta en bucles todas las veces que se esté jugando
     {             // se ejecuta por fps
 
-// 1. Primero capturamos el movimiento
+//deteccion de bloque y ataque
+    if (Input.GetMouseButtonDown(0) && !isAttacking)
+        {
+            Attack();
+        }
+        if (isAttacking)
+        {
+            rd.linearVelocity= new Vector2(0f, rd.linearVelocity.y);
+            return;
+        }
+
+//  Primero capturamos el movimiento y lee las teclas horizontal izquierda o derecha devuelva valores -1,0,1
         float move = Input.GetAxis("Horizontal");
 
         // 2. Controlamos la animación según el suelo
@@ -37,7 +54,7 @@ public class PlayerController : MonoBehaviour  // aqui se hereda de la clase Mon
             animator.SetFloat("Speed", 0f); // En el aire no reproduce animación de correr
         }
 
-        // 3. Aplicamos velocidad física
+        // 3. Aplicamos velocidad física horizontal multiplicando la direccion "move" por la velocidad deseada (moveSpeed)
         rd.linearVelocity = new Vector2(move * moveSpeed, rd.linearVelocity.y);
 
         if (move > 0 && !facinRight)
@@ -57,6 +74,7 @@ public class PlayerController : MonoBehaviour  // aqui se hereda de la clase Mon
             animator.SetBool("isJump", true);
         }
     }
+    //detecta o comprueba si el objeto con el que choco tiene etiqueta Ground
    void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Ground"))
@@ -69,6 +87,7 @@ public class PlayerController : MonoBehaviour  // aqui se hereda de la clase Mon
             }
         }
     }
+    //detecta cuando el personaje deja de tocar el objeto "Ground"
     void OnCollisionExit2D(Collision2D colision)
     {
         if (colision.gameObject.CompareTag("Ground"))
@@ -85,4 +104,20 @@ public class PlayerController : MonoBehaviour  // aqui se hereda de la clase Mon
         scale.x *=-1;
         transform.localScale=scale;
     }
+
+    //activa el bloque de movimiento y dispara el disparador Trigger en el animator para ejecutarla animacion de golpe o ataque
+    void Attack()
+    {
+        isAttacking=true;
+        animator.SetTrigger("Attack");
+
+        Invoke(nameof(ResetAttack),0.35f);
+    }
+    //vuelve a colocar el ataque en false permitiendo que el jugador vuelva a moverse, saltar o atacar de nuevo
+    public void ResetAttack()
+    {
+        isAttacking = false;
+    }
+
+    
 }
