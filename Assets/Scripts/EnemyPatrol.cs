@@ -13,7 +13,9 @@ public class EnemyPatrol : MonoBehaviour
     public Transform groundCheck;
     public float distanceToGround=1.5f;
     public float distanceToWall=1.5f;
-    public LayerMask grondLayer;
+    public LayerMask groundLayer;
+
+    
     private Rigidbody2D rb;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -25,24 +27,22 @@ public class EnemyPatrol : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         //operador ternario: parecido a la sentencia if pero mas sencillo
         // se lee:si movinRight es true usa speed, si es falso usa -speed
         rb.linearVelocity=new Vector2(movinRight ? speed : -speed, rb.linearVelocity.y);
         Vector2 direction=movinRight ? Vector2.right : Vector2.left;
 
-        RaycastHit2D  isGrondHead= Physics2D.Raycast(groundCheck.position,Vector2.down,distanceToGround,grondLayer);
+        RaycastHit2D  isGroundHead= Physics2D.Raycast(groundCheck.position,Vector2.down,distanceToGround,groundLayer);
 
-        RaycastHit2D isWallsAhead= Physics2D.Raycast(transform.position,direction,distanceToWall,grondLayer);
+        RaycastHit2D isWallsAhead= Physics2D.Raycast(groundCheck.position,direction,distanceToWall,groundLayer);
 
-        if(isGrondHead.collider==null || isWallsAhead.collider != null)
+        if(isGroundHead.collider==null || isWallsAhead.collider != null)
         {
             Flip();
         }
 
-
-        
     }
     //creamos la funcion flip()
     void Flip()
@@ -62,7 +62,7 @@ public class EnemyPatrol : MonoBehaviour
             Gizmos.DrawRay(groundCheck.position, Vector2.down * distanceToGround);
         }
         Vector2 direction=movinRight ? Vector2.right : Vector2.left;
-        Gizmos.DrawRay(transform.position,direction * distanceToWall);
+        Gizmos.DrawRay(groundCheck.position,direction * distanceToWall);
         
     }
 }
