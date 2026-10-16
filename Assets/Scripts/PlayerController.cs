@@ -9,7 +9,6 @@ public class PlayerController : MonoBehaviour
     private Animator animator;
 
     private bool facinRight = true;
-    private bool isAttacking = false;
 
     // Controla si el jugador está recibiendo empuje por daño para no sobreescribir la física
     [HideInInspector] public bool isKnocked = false;
@@ -27,17 +26,6 @@ public class PlayerController : MonoBehaviour
         // 0. Si está recibiendo empuje por daño, se ignoran las teclas y no se frena el impulso
         if (isKnocked) return;
 
-        // Deteccion de bloque y ataque
-        if (Input.GetMouseButtonDown(0) && !isAttacking)
-        {
-            Attack();
-        }
-
-        if (isAttacking)
-        {
-            rd.linearVelocity = new Vector2(0f, rd.linearVelocity.y);
-            return;
-        }
 
         // 1. Capturamos el movimiento horizontal (-1, 0, 1)
         float move = Input.GetAxis("Horizontal");
@@ -107,16 +95,5 @@ public class PlayerController : MonoBehaviour
         transform.localScale = scale;
     }
 
-    void Attack()
-    {
-        isAttacking = true;
-        animator.SetTrigger("Attack");
-
-        Invoke(nameof(ResetAttack), 0.35f);
-    }
-
-    public void ResetAttack()
-    {
-        isAttacking = false;
-    }
+  
 }

@@ -27,7 +27,7 @@ public class EnemyPatrol : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         //operador ternario: parecido a la sentencia if pero mas sencillo
         // se lee:si movinRight es true usa speed, si es falso usa -speed
