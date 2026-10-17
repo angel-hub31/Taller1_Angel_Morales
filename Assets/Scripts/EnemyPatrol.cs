@@ -26,7 +26,7 @@ public class EnemyPatrol : MonoBehaviour
         
     }
 
-    // Update is called once per frame
+    // se encarga principalmente de mover al enemigo y decidir si debe darse la vuelta.
     void Update()
     {
         //operador ternario: parecido a la sentencia if pero mas sencillo
@@ -42,7 +42,8 @@ public class EnemyPatrol : MonoBehaviour
         {
             Flip();
         }
-
+        //si el rayo que esta tocando el piso deja de tocarlo  porque e null llama a flip() y hace que se voltee
+        // o si el rayo toca la pared ya que es distinto de null hace que se voltee
     }
     //creamos la funcion flip()
     void Flip()

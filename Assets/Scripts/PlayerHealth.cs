@@ -38,6 +38,8 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeDamage(int damage, Transform enemyTransform)
     {
+        if (isInvulnerable) return;
+        
         currentLives -= damage;
 
         if (animator != null)
