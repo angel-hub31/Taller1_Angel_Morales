@@ -39,17 +39,27 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    public void ReproducirSfx(AudioClip clip)
-    {
-        if(clip != null && fuenteSFX != null)
-        {
-            fuenteSFX.PlayOneShot(clip);
-        }
-    }
+  //  public void ReproducirSfx(AudioClip clip)
+   // {
+      //  if(clip != null && fuenteSFX != null)
+       // {
+       //     fuenteSFX.PlayOneShot(clip);
+        //}
+    //}
 
     // Update is called once per frame
-    void Update()
+    public void ReproducirSfx(AudioClip clip)
+{
+    if (clip != null && fuenteSFX != null)
     {
-        
+        Debug.Log(">>> Reproduciendo sonido: " + clip.name);
+        fuenteSFX.PlayOneShot(clip);
     }
+    else
+    {
+        Debug.LogWarning(">>> Error: clip o fuenteSFX es nulo.");
+    }
+}
+
+
 }
