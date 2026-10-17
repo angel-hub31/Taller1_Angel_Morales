@@ -15,6 +15,12 @@ public class EnemyHealth : MonoBehaviour
     public void TakeDamage(int damegeAmout)
     {
         currentHealth -= damegeAmout;
+
+        if (AudioManager.Instance != null && AudioManager.Instance.sonidoDanioEnemigo != null)
+        {
+            AudioManager.Instance.ReproducirSfx(AudioManager.Instance.sonidoDanioEnemigo);
+        }
+        
         if (currentHealth <=0)
         {
             Die();

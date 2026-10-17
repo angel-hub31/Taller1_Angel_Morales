@@ -16,6 +16,11 @@ public class Coin : MonoBehaviour
                 CoinUI.instance.AddCoin(coinValue);
             }
 
+
+                 if(AudioManager.Instance != null)
+            {
+                AudioManager.Instance.ReproducirSfx(AudioManager.Instance.sonidoMoneda);
+            }
             // Destruye la moneda del mapa
             Destroy(gameObject);
         }

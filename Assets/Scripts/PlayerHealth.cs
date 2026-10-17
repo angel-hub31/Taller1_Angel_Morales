@@ -39,8 +39,18 @@ public class PlayerHealth : MonoBehaviour
     public void TakeDamage(int damage, Transform enemyTransform)
     {
         if (isInvulnerable) return;
-        
+
         currentLives -= damage;
+
+        if (AudioManager.Instance != null && AudioManager.Instance.sonidoDanio != null)
+    {
+        AudioManager.Instance.ReproducirSfx(AudioManager.Instance.sonidoDanio);
+    }
+
+        if(CameraShake.Instance != null)
+        {
+           CameraShake.Instance.Sacudir(0.2f, 0.2f); 
+        }
 
         if (animator != null)
         {

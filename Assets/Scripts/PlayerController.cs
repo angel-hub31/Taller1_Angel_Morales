@@ -10,6 +10,10 @@ public class PlayerController : MonoBehaviour
 
     private bool facinRight = true;
 
+
+    [Header("Efectos visuales")]
+    public GameObject polvoSaltoPrefabs;
+
     // Controla si el jugador está recibiendo empuje por daño para no sobreescribir la física
     [HideInInspector] public bool isKnocked = false;
 
@@ -60,6 +64,16 @@ public class PlayerController : MonoBehaviour
             rd.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             isGrounded = false;
             animator.SetBool("isJump", true);
+
+            if(polvoSaltoPrefabs != null)
+            {
+                Instantiate(polvoSaltoPrefabs, transform.position, Quaternion.identity);
+            }
+
+            if(AudioManager.Instance != null)
+            {
+                AudioManager.Instance.ReproducirSfx(AudioManager.Instance.sonidoSalto);
+            }
         }
     }
 
